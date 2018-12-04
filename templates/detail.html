@@ -1,0 +1,89 @@
+<!-- View Object
+{
+    document = [document] Current document,
+    title = [string] Current title,
+    relatedDocuments = [array] Collection of related documents,
+    recentDocuments = [array] Collection of recent documents,
+    config = [config] Global config
+}
+-->
+<div class="before-main-wrapper">
+  <div class="header-wrapper">
+    <div class="container">
+      <div class="header-titles">
+        <h1><%= document.title %></h1>
+        <a class="button" href="/<%= document.slug %>/edit" title="Edit">✏️ Edit</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container main-section detail">
+  <div class="content">
+    <div class="row">
+      <main class="col-sm-12" role="main">
+        <article>
+          <div class="toc"></div>
+          <%- document.html %>
+        </article>
+      </main>
+    </div>
+    <div class="row actions">
+      <main class="col-sm-12">
+        <a class="button" href="/<%= document.slug %>/edit" title="Edit">✏️ Edit</a>
+        <a class="button" href="/<%= document.slug %>/history" title="View Document Edit History">📕 View History</a>
+        <% if(typeof revision !== 'undefined'){ %>
+          <a class="button" href="/<%= document.slug %>/history/<%= revision %>/restore" title="Restore Revision">⎌ Restore Revision</a>
+        <% } %>
+      </main>
+    </div>
+    <div class="row bottom">
+      <main class="col-sm-12">
+        <div class="row content-sections">
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Related Documents</h2>
+              <% if(relatedDocuments && relatedDocuments.length > 0){%>
+              <ul class="related-documents">
+                <% relatedDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Recent Documents</h2>
+              <% if(recentDocuments && recentDocuments.length > 0){ %>
+              <ul class="recent-documents">
+                <% recentDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Popular Documents</h2>
+              <% if(popularDocuments && popularDocuments.length > 0){ %>
+              <ul class="popular-documents">
+                <% popularDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+<script src="/scripts/page.js"></script>

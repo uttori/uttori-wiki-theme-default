@@ -1,0 +1,39 @@
+<!-- View Object
+{
+    searchTerm = [string] Current search term,
+    searchResults = [array] Collection of result documents,
+}
+-->
+<div class="before-main-wrapper">
+  <div class="header-wrapper">
+    <div class="container">
+      <div class="header-titles">
+        <h1>Search Results for "<%= searchTerm %>"</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container main-section search">
+  <div class="content">
+    <div class="row">
+      <main class="col-sm-12" role="main">
+        <% if(searchResults && searchResults.length > 0){ %>
+          <% searchResults.forEach((result) => { if (result.slug === 'home-page') return; %>
+          <article class="result">
+            <header>
+              <h2 class="result-title">
+                <a href="/<%= result.slug %>" title="<%= result.title %>"><%= result.title %></a>
+              </h2>
+            </header>
+            <div class="result-summary">
+              <%- result.html %>
+            </div>
+          </article>
+          <% }); %>
+        <% } else { %>
+          <p> No results found for "<%= searchTerm %>"</p>
+        <% } %>
+      </main>
+    </div>
+  </div>
+</div>

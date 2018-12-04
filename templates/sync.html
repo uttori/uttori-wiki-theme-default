@@ -1,0 +1,35 @@
+<!-- View Object
+{
+    syncKey = [string] Configured Sync Key,
+}
+-->
+<div class="before-main-wrapper">
+  <div class="header-wrapper">
+    <div class="container">
+      <div class="header-titles">
+        <h1>Sync Documents</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container main-section sync">
+  <div class="content">
+    <div class="row">
+      <div class="form-group">
+        <label for="title">Server URL</label>
+        <input type="text" class="form-control" id="server" name="server" placeholder="Server URL" required />
+      </div>
+      <div class="form-group">
+        <label for="title">Sync Key</label>
+        <input type="text" class="form-control" id="key" name="key" placeholder="Sync Key" value="<%= syncKey %>" required />
+      </div>
+      <div class="js-resultContainer" style="display:none;">
+        <h4>Results</h4>
+        <p><ul class="js-resultList"></ul></p>
+      </div>
+      <a href="#" class="start">Start</a>
+    </div>
+  </div>
+</div>
+<script src="/vendor/jquery.js"></script>
+<script src="/scripts/sync.js"></script>

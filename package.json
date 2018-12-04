@@ -1,0 +1,43 @@
+{
+  "name": "uttori-wiki-theme-default",
+  "version": "1.0.0",
+  "description": "Default theme for the Uttori Wiki",
+  "author": "Matthew Callis <matthew.callis@gmail.com>",
+  "contributors": [],
+  "license": "GPL-3.0",
+  "repository": "uttori/uttori-wiki-theme-default",
+  "homepage": "https://github.com/uttori/uttori-wiki-theme-default",
+  "keywords": [],
+  "engines": {
+    "node": ">= 8.11"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-no-inferred-method-name": "^1.0.2",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-xss": "^0.1.9",
+    "node-sass": "^4.10.0",
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-babel-minify": "^6.2.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0"
+  },
+  "files": [],
+  "browser": "./",
+  "scripts": {
+    "lint": "eslint .",
+    "make": "npm run make-scripts && npm run make-styles",
+    "make-scripts": "node rollup.config.js",
+    "make-styles": "node-sass --output-style compressed src/styles/styles.scss public/styles/style.css",
+    "validate": "npm ls",
+    "watch-styles": "node-sass --watch src/styles/styles.scss public/styles/style.css"
+  }
+}

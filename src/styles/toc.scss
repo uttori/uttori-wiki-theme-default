@@ -1,0 +1,38 @@
+.toc {
+  background-color: #f8f8f8;
+  border: 1px solid #f1f1f1;
+  border-radius: 3px;
+  font-size: .8em;
+  line-height: 1.4em;
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 1.4em 1.6em .8em;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 4px;
+
+      &.toc-h2 {
+        padding-left: 12px;
+      }
+      &.toc-h3 {
+        padding-left: 20px;
+      }
+      &.toc-h4 {
+        padding-left: 28px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .toc {
+    float: right;
+    margin: 0 0 1em 1.3em;
+    max-width: 30%;
+  }
+}

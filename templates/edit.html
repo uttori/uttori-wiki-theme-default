@@ -1,0 +1,63 @@
+<!-- View Object
+{
+    document = [document] Current document,
+    title = [string] Current title,
+    config = [config] Global config
+}
+-->
+<div class="before-main-wrapper">
+  <div class="header-wrapper">
+    <div class="container">
+      <div class="header-titles">
+        <h1>Editing <%= title %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container main-section edit">
+  <div class="content">
+    <div class="row">
+      <form action="/<%= document.slug %>/save" method="POST">
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="" />
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="title form-control" id="title" name="title" placeholder="Title" required value="<%= document.title === 'New Document' ? '' : document.title %>" />
+        </div>
+        <div class="form-group">
+          <label for="slug">Slug</label>
+          <input type="text" class="slug form-control" id="slug" name="slug" placeholder="Slug" required value="<%= document.slug %>" />
+        </div>
+        <div class="form-group">
+          <label for="original-slug">Original Slug (Reference Only)</label>
+          <input type="text" class="original-slug form-control" id="original-slug" name="original-slug" readonly value="<%= document.slug %>" />
+        </div>
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea class="form-control content" rows="100" name="content" autocapitalize="sentences" required spellcheck><%= document.content %></textarea>
+        </div>
+        <div class="form-group">
+          <label for="title">Tags</label>
+          <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags..." value="<%= document.tags ? document.tags.join() : '' %>" />
+        </div>
+        <div class="button-row">
+          <input type="submit" class="save" value="Save" />
+          <% if(document.slug){ %>
+          <a href="<%= document.slug %>/delete" class="delete">Delete</a>
+          <% } %>
+        </div>
+      </form>
+      <form method="post" action="/upload" class="dropzone" id="fileupload" data-upload="uploads/">
+        <div class="dz-message">Drop files here or click to upload.</div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/vendor/dropzone/dropzone.js"></script>
+<script>
+Dropzone.autoDiscover = false;
+Dropzone.options.fileupload = {
+  maxFilesize: 20, // MB
+  acceptedFiles: 'image/*,application/pdf,application/zip,application/x-rar-compressed',
+};
+</script>
+<script src="/scripts/edit.js"></script>

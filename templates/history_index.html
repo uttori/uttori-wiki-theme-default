@@ -1,0 +1,44 @@
+<!-- View Object
+{
+    title = [string],
+    document = [object],
+    history = [array] Collection of revisions,
+    config = [array],
+}
+-->
+<div class="before-main-wrapper history-index">
+  <div class="header-wrapper">
+    <div class="container">
+      <div class="header-titles">
+        <h1>Revision history for &quot;<%= title %>&quot;</h1>
+      </div>
+      <p>All revisions for &quot;<%= title %>&quot;</p>
+    </div>
+  </div>
+</div>
+<div class="container main-section history-index">
+  <div class="content">
+    <div class="row">
+      <main class="col-sm-12" role="main">
+        <article>
+          <div class="toc"></div>
+          <% if(historyByDay && Object.keys(historyByDay).length > 0){ %>
+            <% Object.keys(historyByDay).forEach((day) => { %>
+            <h2><%= day %></h2>
+            <ul class="tagged-documents">
+              <% historyByDay[day].forEach((revision) => { %>
+              <li>
+                <a href="/<%= document.slug %>/history/<%= revision %>" title="<%= new Date(parseInt(revision, 10)).toISOString() %>">
+                  Revision on <%= new Date(parseInt(revision, 10)).toString() %>
+                </a>
+              </li>
+              <% }); %>
+            </ul>
+            <% }); %>
+          <% } %>
+        </article>
+      </main>
+    </div>
+  </div>
+</div>
+<script src="/scripts/page.js"></script>

@@ -1,0 +1,73 @@
+<div class="container main-section home">
+  <div class="content">
+    <% if(siteSections && siteSections.length > 0) { %>
+    <div class="row">
+      <main class="col-sm-12" role="main">
+        <div class="row content-sections">
+          <% siteSections.forEach((section) => { %>
+          <div class="col-sm-4">
+            <div class="section">
+              <h2><%= section.title %></h2>
+              <span class="description"><%= section.description %><span>
+              <a class="link" href="/tags/<%= section.tag %>" title="<%= section.title %> documents"><%= section.documentCount %> documents</a>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+        <article>
+          <div class="toc" style="display:none;"></div>
+          <%- homeDocument.html %>
+        </article>
+      </main>
+    </div>
+    <% } %>
+    <div class="row bottom">
+      <main class="col-sm-12">
+        <div class="row content-sections">
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Recent Documents</h2>
+              <% if(recentDocuments && recentDocuments.length > 0){%>
+              <ul class="recent-documents">
+                <% recentDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Popular Documents</h2>
+              <% if(popularDocuments && popularDocuments.length > 0){ %>
+              <ul class="popular-documents">
+                <% popularDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Random Documents</h2>
+              <% if(randomDocuments && randomDocuments.length > 0){ %>
+              <ul class="random-documents">
+                <% randomDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+.navbar {
+  background-color: rgba(#191817, .8);
+  background-image: url('https://snes.in/site/bg/background-mother2-onett.png');
+  background-position: bottom left;
+  background-repeat: repeat-x;
+  background-size: 50%;
+  border: 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  color: #1d1d1e;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  z-index: 1000;
+
+  .background {
+    background-color: rgba(#191817, .5);
+    transition: .5s;
+    &:hover {
+      background-color: rgba(#191817, .8);
+    }
+  }
+  .navbar-header {
+    align-items: center;
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-bottom: 1em;
+    padding-top: 1em;
+  }
+  .navbar-brand {
+    a {
+      color: #FEFEFE;
+      font-weight: 900;
+      text-decoration: none;
+      text-shadow:
+      2px 0 2px rgba(0, 0, 0, .5),
+      0 2px 2px rgba(0, 0, 0, .5),
+      -2px 0 2px rgba(0, 0, 0, .5),
+      0 -2px 2px rgba(0, 0, 0, .5);
+
+      &:hover,
+      &:focus {
+        color: rgba(#ffffff, .9);
+        text-decoration: none;
+        text-shadow:
+        -3px 0 1px rgba(47, 203, 53, .82),
+        0 -3px 1px rgba(48, 167, 249, .88),
+        0 3px 1px rgba(255, 251, 78, .85),
+        3px 0 1px rgba(249, 74, 82, .91);
+      }
+    }
+  }
+  .navbar-form {
+    border: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+
+    input {
+      box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+
+      &::placeholder,
+      &:-moz-placeholder,
+      &::-moz-placeholder,
+      &:-ms-input-placeholder {
+        color: #353535;
+        font-size: 14px;
+        opacity: .5;
+      }
+    }
+    .form-control {
+      border: 0;
+      border-radius: 8px;
+      height: auto;
+      width: 100%;
+
+      &:focus {
+        -webkit-box-shadow: none;
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+  .navbar-button {
+    flex: 0 0 auto;
+    margin-left: 1em;
+
+    .tags,
+    .new-document {
+      background-color: rgba(0, 0, 0, .6);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+      color: #ffffff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, .4);
+
+      &:hover {
+        color: rgba(#ffffff, .9);
+        text-shadow:
+        -3px 0 1px rgba(47, 203, 53, .82),
+        0 -3px 1px rgba(48, 167, 249, .88),
+        0 3px 1px rgba(255, 251, 78, .85),
+        3px 0 1px rgba(249, 74, 82, .91);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-form {
+    margin-left: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    .navbar-header {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .navbar-brand {
+      margin-bottom: 0;
+      margin-left: -15px;
+      margin-right: 15px;
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    .navbar-header {
+      align-items: stretch;
+      flex-direction: column;
+      padding: 1em;
+
+      .navbar-form {
+        margin-bottom: 1em;
+      }
+      .navbar-button {
+        margin-left: 0;
+      }
+    }
+  }
+}

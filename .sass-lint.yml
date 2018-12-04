@@ -1,0 +1,22 @@
+rules:
+  indentation:
+    - 2
+    -
+      size: 2
+  nesting-depth:
+    - 2
+    -
+      max-depth: 8
+  no-color-literals:
+    - 0
+  hex-length:
+    - 2
+    -
+      style: long
+  empty-line-between-blocks:
+    - 0
+  no-vendor-prefixes:
+    - 1
+    -
+      additional-identifiers:
+        - khtml

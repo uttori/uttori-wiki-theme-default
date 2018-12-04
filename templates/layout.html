@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title><%= title ? title + " | " : "" %><%= config.site_title %></title>
+<%- include('open_graph'); -%>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900&amp;subset=latin-ext,vietnamese" media="all" />
+<link rel="stylesheet" href="/styles/style.css" media="all" />
+<%- style %>
+<% if(config.use_recaptcha && config.recaptcha_site_key){ %>
+<script src='https://www.google.com/recaptcha/api.js?render=<%= config.recaptcha_site_key %>'></script>
+<% } %>
+</head>
+<body>
+<header class="navbar" role="banner">
+  <div class="background">
+    <div class="container">
+      <div class="navbar-header">
+        <h2 class="navbar-brand">
+          <a href="/" title="<%= config.site_title %>"><%= config.site_header %></a>
+        </h2>
+        <form role="search" method="get" name="search" class="navbar-form" action="/search">
+          <input type="text" aria-label="Search" value="" name="s" class="form-control search-query" placeholder="🔍 Search <%= config.site_title %>">
+        </form>
+        <div class="navbar-button">
+          <a href="/tags" class="button tags" title="Browse Document Tags">Browse Tags</a>
+        </div>
+        <div class="navbar-button">
+          <a href="/new" class="button new-document" title="Create New Document">New Document</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<%- body %>
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row">
+      ©<%= new Date().getFullYear() %> <%= config.site_footer %> | <a href="https://github.com/uttori" rel="external">Powered by Uttori Wiki</a>
+    </div>
+  </div>
+</footer>
+<%- script %>
+<% if(config.use_google_analytics && config.google_analytics_id){ %>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= config.google_analytics_id %>"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '<%= config.google_analytics_id %>');
+</script>
+<% } %>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!-- View Object
+{
+    taggedDocuments = [array] Collection of result documents,
+    recentDocuments = [array],
+    popularDocuments = [array],
+    randomDocuments = [array],
+    siteSections = [array],
+    tags = [array],
+    taggedDocuments = [array],
+}
+-->
+<div class="before-main-wrapper tags">
+  <div class="header-wrapper">
+    <div class="container">
+      <div class="header-titles">
+        <h1><%= title %></h1>
+      </div>
+      <p>All tagged documents sorted by tag.</p>
+    </div>
+  </div>
+</div>
+<div class="container main-section tags">
+  <div class="content">
+    <div class="row">
+      <main class="col-sm-12" role="main">
+        <article>
+          <div class="toc"></div>
+          <% if(taggedDocuments && Object.keys(taggedDocuments).length > 0){ %>
+            <% Object.keys(taggedDocuments).forEach((tag) => { %>
+              <h2><%= tag %></h2>
+              <ul class="tagged-documents">
+                <% taggedDocuments[tag].sort((a, b) => a.title.localeCompare(b.title)).forEach((document) => { %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title %>"><%= document.title %></a>
+                </li>
+                <% }); %>
+              </ul>
+            <% }); %>
+          <% } %>
+        </article>
+      </main>
+    </div>
+    <div class="row">
+      <main class="col-sm-12">
+        <div class="row content-sections">
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Recent Documents</h2>
+              <% if(recentDocuments && recentDocuments.length > 0){ %>
+              <ul class="recent-documents">
+                <% recentDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Popular Documents</h2>
+              <% if(popularDocuments && popularDocuments.length > 0){ %>
+              <ul class="popular-documents">
+                <% popularDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="section">
+              <h2>Random Documents</h2>
+              <% if(randomDocuments && randomDocuments.length > 0){%>
+              <ul class="random-documents">
+                <% randomDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <li>
+                  <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
+                </li>
+                <% }); %>
+              </ul>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+<script src="/scripts/page.js"></script>
