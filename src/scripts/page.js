@@ -5,6 +5,8 @@ import cpp from 'highlight.js/lib/languages/cpp';
 import javascript from 'highlight.js/lib/languages/javascript';
 import ruby from 'highlight.js/lib/languages/ruby';
 
+import config from './config';
+
 hljs.registerLanguage('armasm', armasm);
 hljs.registerLanguage('cpp', cpp);
 hljs.registerLanguage('javascript', javascript);
@@ -68,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // reCaptcha
-  if (typeof grecaptcha !== 'undefined') {
+  if (typeof grecaptcha !== 'undefined' && config.reCaptcha) {
     grecaptcha.ready(() => {
-      grecaptcha.execute('6LfEtXwUAAAAADBhLYyu3-jdG4fTkrqllf-jswLK', { action: 'edit' }).then((token) => {
+      grecaptcha.execute(config.reCaptcha, { action: 'view' }).then((token) => {
         const captcha = document.querySelector('input#g-recaptcha-response');
         if (captcha) {
           captcha.value = token;

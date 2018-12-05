@@ -4,20 +4,15 @@ This is the default theme for [Uttori Wiki](https://github.com/uttori/uttori-wik
 
 # Instructions
 
-It's highly recommended that you fork this repo and make changes, add `favicon.png, favicon.png, favicon.png` and any other files you need in the root, like a `google_###.html` authentication file.
+It's highly recommended that you fork this repo (you should probably start off with it being private for security purposes) and make changes, add `favicon.png, favicon.png, favicon.png` and any other files you need in the `public` folder.
 
-Clone that forked repo inside your themes folder, ensure your repository name (now folder name) is set to be value for the config key `theme_name`.
+There is a convenient `custom.scss` file to add any custom styles like a background.
 
-# TODO
- - Indexation controls by page type
- - `rel=next/prev`
- - Ability to cross-link or feature posts
-  - related posts
-  - top posts
-  - featured posts
- - breadcrumbs
- - JSON-LD, Structured data in JSON https://developers.google.com/search/docs/data-types/article
-writing functionality of Airstory with the SEO capabilities of Yoast
+Optionally add a [reCaptcha](https://www.google.com/recaptcha/intro/v3.html) key to the `src/scripts/config.js` file.
+
+Run the make script by running `npm run make` so everything compiles to the public folder, commit this.
+
+Clone that forked repo inside your Uttori Wiki `themes` folder, ensure your repository name (or the folder name if you rename it) is set to be value for the Uttori Wiki config key `theme_name`.
 
 # Namesake
 

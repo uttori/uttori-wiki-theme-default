@@ -1,4 +1,5 @@
 import slugify from 'slugify';
+import config from './config';
 
 document.addEventListener('DOMContentLoaded', () => {
   const dropzone = new Dropzone('.dropzone');
@@ -47,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // reCaptcha
-  if (typeof grecaptcha !== 'undefined') {
+  if (typeof grecaptcha !== 'undefined' && config.reCaptcha) {
     grecaptcha.ready(() => {
-      grecaptcha.execute('6LfEtXwUAAAAADBhLYyu3-jdG4fTkrqllf-jswLK', { action: 'edit' }).then((token) => {
+      grecaptcha.execute(config.reCaptcha, { action: 'edit' }).then((token) => {
         const captcha = document.querySelector('input#g-recaptcha-response');
         if (captcha) {
           captcha.value = token;
