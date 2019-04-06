@@ -28,7 +28,7 @@ const tableOfContents = (options) => {
     items.forEach((item) => {
       const index = item.id || `toc-${i++}`;
       const text = item.textContent.trim();
-      const className = selector.replace(/((:+[\w-\d]*)|[^A-z0-9-\s])/g, ' ').replace(/\s{2,}/g, ' ').trim();
+      const className = selector.replace(/((:+[\w-\d]*)|[^\d\s-A-z])/g, ' ').replace(/\s{2,}/g, ' ').trim();
 
       // Set it if none
       if (item.id !== index) {

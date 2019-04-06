@@ -9,7 +9,7 @@
   <div class="header-wrapper">
     <div class="container">
       <div class="header-titles">
-        <h1>Editing <%= title %></h1>
+        <h1><%= title %></h1>
       </div>
     </div>
   </div>
@@ -30,6 +30,10 @@
         <div class="form-group">
           <label for="original-slug">Original Slug (Reference Only)</label>
           <input type="text" class="original-slug form-control" id="original-slug" name="original-slug" readonly value="<%= document.slug %>" />
+        </div>
+        <div class="form-group">
+          <label for="content">Excerpt</label>
+          <textarea class="form-control excerpt" rows="20" name="excerpt" autocapitalize="sentences" required spellcheck><%= document.excerpt %></textarea>
         </div>
         <div class="form-group">
           <label for="content">Content</label>

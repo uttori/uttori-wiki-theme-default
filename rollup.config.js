@@ -10,8 +10,7 @@ rollup({
   input: 'src/scripts/page.js',
   plugins: [
     resolve({
-      jsnext: true,
-      main: true,
+      mainFields: ['jsnext', 'module', 'main'],
       browser: true,
     }),
     commonjs(),
@@ -34,16 +33,15 @@ rollup({
   })
 )).then(() => {
   console.log('page.js bundle created!');
-}).catch((e) => {
-  console.log(e);
+}).catch((error) => {
+  console.log(error);
 });
 
 rollup({
   input: 'src/scripts/edit.js',
   plugins: [
     resolve({
-      jsnext: true,
-      main: true,
+      mainFields: ['jsnext', 'module', 'main'],
       browser: true,
     }),
     commonjs(),
@@ -66,6 +64,6 @@ rollup({
   })
 )).then(() => {
   console.log('edit.js bundle created!');
-}).catch((e) => {
-  console.log(e);
+}).catch((error) => {
+  console.log(error);
 });

@@ -54,7 +54,7 @@
               <h2>Recent Documents</h2>
               <% if(recentDocuments && recentDocuments.length > 0){ %>
               <ul class="recent-documents">
-                <% recentDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <% recentDocuments.forEach((document) => { %>
                 <li>
                   <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
                 </li>
@@ -68,7 +68,7 @@
               <h2>Popular Documents</h2>
               <% if(popularDocuments && popularDocuments.length > 0){ %>
               <ul class="popular-documents">
-                <% popularDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <% popularDocuments.forEach((document) => { %>
                 <li>
                   <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
                 </li>
@@ -82,7 +82,7 @@
               <h2>Random Documents</h2>
               <% if(randomDocuments && randomDocuments.length > 0){%>
               <ul class="random-documents">
-                <% randomDocuments.forEach((document) => { if(document.slug === 'home-page') return; %>
+                <% randomDocuments.forEach((document) => { %>
                 <li>
                   <a href="/<%= document.slug %>" title="<%= document.title.trim() %>"><%= document.title.trim() %></a>
                 </li>

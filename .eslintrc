@@ -2,42 +2,55 @@
   "extends": [
     "airbnb",
     "plugin:node/recommended",
+    "plugin:ramda/recommended",
+    "plugin:security/recommended",
+    "plugin:unicorn/recommended"
   ],
   "plugins": [
+    "no-inferred-method-name",
     "node",
+    "optimize-regex",
+    "ramda",
+    "security",
+    "unicorn",
     "xss"
   ],
   "env": {
     "es6": true,
     "browser": true,
-    "mocha": true,
+    "mocha": true
   },
   "globals": {
     "sinon": false,
     "mocha": true,
-    "expect": true,
+    "expect": true
   },
   "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
+    "ecmaVersion": 10
   },
   # Custom Disabled Rules
   rules: {
     "import/no-dynamic-require": 0,
+    "import/no-extraneous-dependencies": [
+      "error", {
+        "devDependencies": ["**/*.test.js", "**/test/**/*.js"],
+        "optionalDependencies": true,
+        "peerDependencies": false
+      }
+    ],
     "node/no-unpublished-require": 0,
     camelcase: 0,
-    class-methods-use-this: 0,
     global-require: 0,
     max-len: 0,
-    no-console: 0,
     no-empty: ["error", { "allowEmptyCatch": true }],
     no-param-reassign: 0,
     no-plusplus: 0, # Meaningless as other rules prevent the errors that could happen.
     no-restricted-syntax: 0,
     no-underscore-dangle: 0,
     no-unused-vars: ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_", "caughtErrors": "none" }],
+    "security/detect-object-injection": 0,
+    "security/detect-non-literal-fs-filename": 0,
+    "optimize-regex/optimize-regex": "warn",
+    "unicorn/filename-case": 0
   }
 }
