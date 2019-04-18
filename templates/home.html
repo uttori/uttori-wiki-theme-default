@@ -2,7 +2,7 @@
   <div class="content">
     <% if(siteSections && siteSections.length > 0) { %>
     <div class="row">
-      <main class="col-sm-12" role="main">
+      <div class="col-sm-12" role="main">
         <div class="row content-sections">
           <% siteSections.forEach((section) => { %>
           <div class="col-sm-4">
@@ -14,13 +14,17 @@
           </div>
           <% }); %>
         </div>
+      </div>
+    </div>
+    <% } %>
+    <div class="row">
+      <main class="col-sm-12" role="main">
         <article>
           <div class="toc" style="display:none;"></div>
           <%- homeDocument.html %>
         </article>
       </main>
     </div>
-    <% } %>
     <div class="row bottom">
       <main class="col-sm-12">
         <div class="row content-sections">
